@@ -2178,23 +2178,45 @@ strings:
   2123: " PS"
   2124: " kW"
   2125: "{COLOUR WINDOW_2}Sprache:"
-
+  2126: "{COLOUR WINDOW_2}Fahrzeugpannen Deaktiviere"
   2127: "{COLOUR WINDOW_2}Bildschirmmodus:"
   2128: Fenstermodus
   2129: Vollbild
   2130: Vollbild (Randlos)
   2131: Standard-Soundgerät
   2132: "{COLOUR WINDOW_2}Fensterskalierungsfaktor:"
-
+  2133: "{COLOUR BLACK}+"
+  2134: "{COLOUR BLACK}-"
   2136: "{COLOUR WINDOW_2}Zum Mauszeiger zoomen"
   2137: "{SMALLFONT}{COLOUR BLACK}Wählen Sie, ob beim Hereinzoomen der Mauszeiger statt des Bildschirmmittelpunkts zum Zentrum wird."
   2138: "{COLOUR WINDOW_2}Musik des Titelbildschirms abspielen"
-
+  2139: "Zurück zum Menü"
+  2140: "Beende OpenLoco"
+  2141: "{COLOUR WINDOW_2}Deaktiviere KI Unternehmen"
+  2142: "{SMALLFONT}{COLOUR BLACK}Dies verhindert, dass KI Unternehmen 'denken', wodurch sie unwirksam werden.{NEWLINE}In neuen Spielen verhindert es außerdem die Bildung neuer KI Unternehmen."
+  2143: "{COLOUR WINDOW_2}Anzahl automatischer Speicherstände:"
+  2144: "{COLOUR WINDOW_2}Speicherintervall:"
+  2145: "Niemals"
+  2146: "Jeden Monat"
+  2147: "Alle {INT32} Monate"
+  2148: "{COLOUR WINDOW_2}Heightmap quelle:"
+  2149: Originaler generator
+  2150: Simplex generator
+  2151: "Modifiziere Fahrzeug"
+  2152: "Klone Fahrzeug"
+  2153: "Kann Fahrzeug nicht klonen..."
+  2154: "Finde Fahrzeug in der Hauptansicht"
+  2155: "Folge Fahrzeug in der Hauptansicht"
+  2156: "Werkzeugleisten für Cheats/Debugging aktivieren"
+  2157: "{SMALLFONT}{COLOUR BLACK}Dadurch wird der Werkzeugleiste des Spiels ein zusätzlicher Button hinzugefügt, der einfachen Zugriff auf bestimmte Cheats und Debugging-Optionen ermöglicht."
+  2158: "Aktiviere Sandkasten Modus"
+  2159: "Erlaubt manuelles fahren"
+  2160: "Erlaubt bauen während Pausen"
   2161: "Zeige FPS an"
   2162: "{SMALLFONT}{COLOUR BLACK}Zeige die Anzahl der Bilder pro Sekunde (FPS) oben am Bildschirm an."
   2163: "FPS-Limiter deaktivieren"
   2164: "{SMALLFONT}{COLOUR BLACK}Entfernt die limitierung auf 40Hz."
-
+  2165: "Hardware"
   2166: "Kartendarstellung"
 
   2251: "Rechtsklick drag umkehren"
