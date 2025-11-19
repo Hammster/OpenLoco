@@ -16,6 +16,11 @@ namespace OpenLoco
     enum class LoadOrQuitMode : uint16_t;
 }
 
+namespace OpenLoco::World
+{
+    struct WallElement;
+}
+
 namespace OpenLoco::World::TileManager
 {
     enum class ElementPositionFlags : uint8_t;
@@ -208,6 +213,14 @@ namespace OpenLoco::GameCommands
         uint8_t flags_1136073;                                  // 0x01136073
         World::MicroZ byte_1136074;                             // 0x01136074
         uint8_t byte_1136075;                                   // 0x01136075
+        StationId lastPlacedTrackRoadStationId;                 // 0x0112C730
+        StationId lastConstructedAdjoiningStation;              // 0x0112C734
+        StationId lastPlacedAirport;                            // 0x0112C744
+        StationId lastPlacedDock;                               // 0x0112C748
+        World::Pos2 lastConstructedAdjoiningStationPos;         // 0x0112C792 centre pos
+        IndustryId lastPlacedIndustryId;                        // 0x00E0C3C9
+        World::WallElement* lastPlacedWall;                     // 0x01136470
+        EntityId lastCreatedVehicleId;                          // 0x0113642A
     };
 
     // Note: this is deliberately a mutable ref

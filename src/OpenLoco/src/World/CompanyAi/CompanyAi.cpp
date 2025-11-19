@@ -83,11 +83,6 @@ namespace OpenLoco
 {
     static void removeEntityFromThought(AiThought& thought, size_t index);
 
-    static loco_global<StationId, 0x0112C730> _lastPlacedTrackStationId;
-    static loco_global<StationId, 0x0112C744> _lastPlacedAirportStationId;
-    static loco_global<StationId, 0x0112C748> _lastPlacedPortStationId;
-    static loco_global<EntityId, 0x0113642A> _lastCreatedVehicleId;
-
     enum class ThoughtTypeFlags : uint32_t
     {
         none = 0U,
@@ -264,11 +259,11 @@ namespace OpenLoco
             }
             if (trainHeadId == EntityId::null)
             {
-                trainHeadId = _lastCreatedVehicleId;
+                trainHeadId = GameCommands::getLegacyReturnState().lastCreatedVehicleId;
             }
             // There was some broken code that would try read the head as a body here
 
-            // auto* veh = EntityManager::get<Vehicles::VehicleBogie>(_lastCreatedVehicleId); lol no this wouldn't work
+            // auto* veh = EntityManager::get<Vehicles::VehicleBogie>(GameCommands::getLegacyReturnState().lastCreatedVehicleId); lol no this wouldn't work
             // auto train = Vehicles::Vehicle(veh->head);
             // auto car = [&train, veh]() {
             //     for (auto& car : train.cars)
@@ -5943,6 +5938,7 @@ namespace OpenLoco
             return 1;
         }
 
+        auto& legacyGCReturn = GameCommands::getLegacyReturnState();
         auto& aiStation = thought.stations[i];
         const auto pos = World::Pos3(aiStation.pos, aiStation.baseZ * World::kSmallZStep);
         if (thoughtTypeHasFlags(thought.type, ThoughtTypeFlags::airBased))
@@ -5966,9 +5962,9 @@ namespace OpenLoco
                 }
             }
 
-            if (_lastPlacedAirportStationId != StationId::null)
+            if (legacyGCReturn.lastPlacedAirport != StationId::null)
             {
-                aiStation.id = _lastPlacedAirportStationId;
+                aiStation.id = legacyGCReturn.lastPlacedAirport;
             }
         }
         else if (thoughtTypeHasFlags(thought.type, ThoughtTypeFlags::waterBased))
@@ -5992,9 +5988,9 @@ namespace OpenLoco
                 }
             }
 
-            if (_lastPlacedPortStationId != StationId::null)
+            if (legacyGCReturn.lastPlacedDock != StationId::null)
             {
-                aiStation.id = _lastPlacedPortStationId;
+                aiStation.id = legacyGCReturn.lastPlacedDock;
             }
         }
         else
@@ -6009,9 +6005,9 @@ namespace OpenLoco
                     return 2;
                 }
 
-                if (_lastPlacedTrackStationId != StationId::null)
+                if (legacyGCReturn.lastPlacedTrackRoadStationId != StationId::null)
                 {
-                    aiStation.id = _lastPlacedTrackStationId;
+                    aiStation.id = legacyGCReturn.lastPlacedTrackRoadStationId;
                 }
             }
             else
@@ -6034,9 +6030,9 @@ namespace OpenLoco
                         }
                     }
 
-                    if (_lastPlacedTrackStationId != StationId::null)
+                    if (legacyGCReturn.lastPlacedTrackRoadStationId != StationId::null)
                     {
-                        aiStation.id = _lastPlacedTrackStationId;
+                        aiStation.id = legacyGCReturn.lastPlacedTrackRoadStationId;
                     }
                     placeArgs.pos += World::Pos3{ kRotationOffset[placeArgs.rotation], 0 };
                 }
